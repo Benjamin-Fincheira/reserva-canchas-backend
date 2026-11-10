@@ -4,7 +4,7 @@ from .models import Cancha, Cliente, Reserva
 class CanchaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cancha
-        fields = '__all__'
+        fields = '__all__'#id, nombre, deporte, etc
 
 class ClienteSerializer(serializers.ModelSerializer):
     class Meta:
@@ -15,13 +15,11 @@ class ReservaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Reserva
         fields = '__all__'
-
     # Validar que no se dupliquen reservas a la misma hora
-    def validate(self, data):
-        cancha = data.get('cancha')
+    def validate(self, data):#data tiene la informacion desde la peticion
+        cancha = data.get('cancha')#con este formato para evitar errores con la existencia de campos vacios
         fechaClave = data.get('fechaClave')
         hora = data.get('hora')
-
         # Si ya existe una reserva con la misma cancha, fecha y hora, lanzamos error
         if Reserva.objects.filter(cancha=cancha, fechaClave=fechaClave, hora=hora).exists():
             raise serializers.ValidationError({
