@@ -20,7 +20,7 @@ class Cliente(models.Model):
         return self.nombre #muestra el nombre del cliente en el sistema
 
 class Reserva(models.Model):
-    cancha = models.ForeignKey(Cancha, on_delete=models.CASCADE)#Cascade elimina todas las reservas en esa cancha al eliminar la cancha
+    cancha = models.ForeignKey(Cancha, on_delete=models.CASCADE, related_name='reservas')#permite hacer consultas inversas
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)#Cascade elimina todas las reservas del cliente al eliminar el cliente
     fechaClave = models.DateField() # Conectado con el formato (YYYY-MM-DD)
     hora = models.CharField(max_length=10) 
