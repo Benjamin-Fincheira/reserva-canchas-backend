@@ -51,4 +51,4 @@ DATABASES = { #define sqlite3 como base de datos
         'NAME': BASE_DIR / 'db.sqlite3', #nombre de base de datos en sqlite3
         } 
     }
-STATIC_URL = 'static/'#http://localhost:8000/static/
+STATIC_URL = 'static/'#http://localhost:8000/static/ para descargar archivos css (diseño de pagina) 
