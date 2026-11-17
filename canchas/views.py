@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 from .models import Cancha, Cliente, Reserva
 from .serializers import CanchaSerializer, ClienteSerializer, ReservaSerializer
-
+#modelviewset genera automaticamente todas las operaciones crud
 class CanchaViewSet(viewsets.ModelViewSet):#define clase con todas las operaciones crud implementadas
     queryset = Cancha.objects.all()#trae todos los registros de Cancha
     serializer_class = CanchaSerializer#indica que seralizador usar

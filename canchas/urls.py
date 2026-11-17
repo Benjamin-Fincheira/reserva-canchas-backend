@@ -6,7 +6,7 @@ router = DefaultRouter()#genera todas las rutas posibles del CRUD
 router.register(r'canchas', CanchaViewSet)# 3 endpoints
 router.register(r'clientes', ClienteViewSet)
 router.register(r'reservas', ReservaViewSet)
-
+#conecta la direccion web con una vista, la cual consulta la base de datos y entrega los datos en formato JSON
 urlpatterns = [#toma todas las rutas generadas y agrega prefijo api/
-    path('api/', include(router.urls)),#para catolgarlas como rutas que responden a datos en formato JSON
+    path('api/', include(router.urls)),#para catalogarlas como rutas que responden a datos en formato JSON
 ] 

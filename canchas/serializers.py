@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import Cancha, Cliente, Reserva
-
+#traduce objetos de python a JSON
 class CanchaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cancha
